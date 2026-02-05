@@ -1,11 +1,12 @@
 import { Vector3 } from "three";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PlayerModel from '../components/canvas/PlayerModel';
 import BoxModel from '../components/canvas/BoxModel';
 import useTerrainClick from '../components/hooks/useTerrainClick';
 import TerrainModel from '../components/canvas/TerrainModel';
 import usePlayerMovement from '../components/hooks/usePlayerMovement';
 import useCameraMovement from "../components/hooks/useCameraMovement";
+import GrassPatch from "../components/canvas/GrassPatch";
 
 const Scene = ({ isOpen, handleOpen }) => {
   const modelRef = useRef();
@@ -38,6 +39,8 @@ const Scene = ({ isOpen, handleOpen }) => {
         setEnableTerrainClick={setEnableTerrainClick}
       />
       <PlayerModel modelRef={modelRef} />
+
+      <GrassPatch position={[1, 0, 0]} />
     </>
   );
 };
