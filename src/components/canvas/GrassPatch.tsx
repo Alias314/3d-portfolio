@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-import Grass from './grass';
 import { getRandomCoordinate, getRandomRotation } from '../../utils/math';
-import { useFrame } from '@react-three/fiber';
-import { Clock } from 'three';
+import Grass from './Grass';
 
 const GrassPatch = ({ position }) => {
   const [grassList, setGrassList] = useState([]);
