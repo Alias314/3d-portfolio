@@ -1,7 +1,7 @@
 import { Outlines, Text } from "@react-three/drei";
 import { useState } from "react";
 
-const BoxModel = ({ position, meshRef, title }) => {  
+const BoxModel = ({ position, meshRef, title, handleOpen, setEnableTerrainClick }) => {  
   const [showOutline, setShowOutline] = useState(false);
 
   return (
@@ -9,8 +9,15 @@ const BoxModel = ({ position, meshRef, title }) => {
       ref={meshRef} 
       position={position} 
       castShadow
-      onPointerEnter={() => setShowOutline(true)}
-      onPointerLeave={() => setShowOutline(false)}
+      onPointerDown={() => handleOpen()}
+      onPointerEnter={() => {
+        setShowOutline(true);
+        setEnableTerrainClick(false);
+      }}
+      onPointerLeave={() => {
+        setShowOutline(false);
+        setEnableTerrainClick(true);
+      }}
     >
       <boxGeometry />
       <meshStandardMaterial color={"gray"} />
